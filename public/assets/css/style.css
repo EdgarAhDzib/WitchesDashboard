@@ -1,0 +1,486 @@
+/*https://css-tricks.com/snippets/css/complete-guide-grid/ */
+/* look into keyframe, one to declare at "Fade in," "ease in" */
+body {
+	background-image: url("../images/tarot_wallpaper_bright.jpg");
+}
+
+.container {
+	display: grid; /* | inline-grid | subgrid --> May be optional */
+	justify-self: center;
+	align-content: center; /* space-evenly */
+	justify-content: center; /* space-evenly */
+	grid-template-rows: repeat(8, 1fr); /* 1fr 1fr 1fr 1fr; */
+	grid-template-columns: repeat(8, 1fr); /* 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;*/
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+@-webkit-keyframes fstCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes fstCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@-webkit-keyframes sndCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	50% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes sndCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	50% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@-webkit-keyframes thrCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	67% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes thrCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	67% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@-webkit-keyframes fourCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	75% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes fourCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	75% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@-webkit-keyframes fiveCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	80% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes fiveCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	80% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@-webkit-keyframes sixCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	83% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes sixCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	83% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@-webkit-keyframes sevCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	86% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes sevCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	86% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@-webkit-keyframes egtCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	87% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes egtCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	87% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@-webkit-keyframes ninCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	89% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes ninCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	89% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@-webkit-keyframes tenCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	90% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes tenCardFadeIn {
+	0% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	90% { 
+		opacity: 0;
+		visibility: hidden;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.first {
+	grid-column-start: 3;
+	grid-column-end: 5;
+	grid-row-start: 4;
+	grid-row-end: 6;
+	justify-self: center;
+	animation-name: fstCardFadeIn;
+	animation-duration: 1s;
+}
+
+.second {
+	grid-column-start: 3;
+	grid-column-end: 5;
+	grid-row-start: 4;
+	grid-row-end: 6;
+	justify-self: center;
+	z-index: 2;
+
+	animation-name: sndCardFadeIn;
+	animation-duration: 2s;
+
+	transform:          rotate(270deg);
+	-ms-transform:      rotate(270deg);
+	-moz-transform:     rotate(270deg);
+	-webkit-transform:  rotate(270deg);
+	-o-transform:       rotate(270deg);
+}
+
+.third {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 6;
+	justify-self: center;
+	animation-name: thrCardFadeIn;
+	animation-duration: 3s;
+}
+
+.fourth {
+	grid-column-start: 5;
+	grid-column-end: 7;
+	grid-row-start: 4;
+	grid-row-end: 6;
+	justify-self: center;
+	animation-name: fourCardFadeIn;
+	animation-duration: 4s;
+}
+
+.fifth {
+	grid-column-start: 3;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 4;
+	justify-self: center;
+	animation-name: fiveCardFadeIn;
+	animation-duration: 5s;
+}
+
+.sixth {
+	grid-column-start: 3;
+	grid-column-end: 5;
+	grid-row-start: 6;
+	grid-row-end: 8;
+	justify-self: center;
+	animation-name: sixCardFadeIn;
+	animation-duration: 6s;
+}
+
+.seventh {
+	grid-column-start: 7;
+	grid-column-end: end;
+	grid-row-start: 7;
+	grid-row-end: end;
+	justify-self: center;
+	animation-name: sevCardFadeIn;
+	animation-duration: 7s;
+}
+
+.eighth {
+	grid-column-start: 7;
+	grid-column-end: end;
+	grid-row-start: 5;
+	grid-row-end: 7;
+	justify-self: center;
+	animation-name: egtCardFadeIn;
+	animation-duration: 8s;
+}
+
+.ninth {
+	grid-column-start: 7;
+	grid-column-end: end;
+	grid-row-start: 3;
+	grid-row-end: 5;
+	justify-self: center;
+	animation-name: ninCardFadeIn;
+	animation-duration: 9s;
+}
+
+.tenth {
+	grid-column-start: 7;
+	grid-column-end: end;
+	grid-row-start: 1;
+	grid-row-end: 3;
+	justify-self: center;
+	animation-name: tenCardFadeIn;
+	animation-duration: 10s;
+}
+
+.cardFirstOfThree {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	justify-self: center;
+	animation-name: fstCardFadeIn;
+	animation-duration: 1s;
+}
+
+.cardSndOfThree {
+	grid-column-start: 4;
+	grid-column-end: 6;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	justify-self: center;
+	animation-name: sndCardFadeIn;
+	animation-duration: 2s;
+}
+
+.cardThirdOfThree {
+	grid-column-start: 7;
+	grid-column-end: end;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	justify-self: center;
+	animation-name: thrCardFadeIn;
+	animation-duration: 3s;
+}
+
+/* Didn't couple with .cardSndOfThree as it should have */
+.singleCard {
+	grid-column-start: 4;
+	grid-column-end: 6;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	justify-self: center;
+	align-self: center;
+	animation-name: fstCardFadeIn;
+	animation-duration: 1s;
+}
+
+.tarotSel #tarotSub {
+	width: 200px;
+	font-size: 250%;
+}
+
+.cardGrid {
+	width: 190px;
+}
+
+.nested {
+	margin: auto;
+	width: 190px;
+}
+
+.imgContainer {
+	margin: auto;
+	width: 150px;
+}
+
+.imgEl {
+	margin: auto;
+}
+
+.titleDiv {
+	text-align: center;
+	background-color: rgba(255,255,255,0.7);
+}

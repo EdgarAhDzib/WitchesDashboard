@@ -1,0 +1,49 @@
+{
+  "name": "witchdashboard",
+  "version": "1.0.0",
+  "description": "Dashboard-panel with APIs on MEAN / MERN platform",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "cheerio": "^0.22.0",
+    "express": "^4.16.2",
+    "mongoose": "^4.10.8",
+    "morgan": "^1.9.0",
+    "react": "^15.6.2",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-addons-transition-group": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-transition-group": "^2.2.1",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "^3.8.1"
+  },
+  "scripts": {
+    "test": "echo \"Test\"",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "witchesdashboard"
+  },
+  "keywords": [
+    "MEAN",
+    "MERN",
+    "API",
+    "one-page",
+    "app",
+    "dashboard"
+  ],
+  "author": "Edgar Martin del Campo",
+  "license": "ISC"
+}
