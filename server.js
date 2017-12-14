@@ -33,7 +33,15 @@ app.use(express.static("./public") );
 const oracle = require("./app/config/routes/oracle");
 app.use("/", oracle);
 
-var databaseUri = "mongodb://localhost/tarot";
+const tonalli = require("./app/config/routes/tonalli");
+app.use("/", tonalli);
+
+// Already run to populate the Gods collection, no longer required
+// const popdeities = require("./app/config/routes/popDeities");
+// app.use("/", popdeities);
+
+// Changed DB for consistency
+var databaseUri = "mongodb://localhost/witchesdb";
 
 if (process.env.MONGODB_URI) {
 	mongoose.connect(process.env.MONGODB_URI);
