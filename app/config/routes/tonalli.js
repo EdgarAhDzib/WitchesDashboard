@@ -30,6 +30,7 @@ var firstDay = tonalli - sinceFirst;
 if (firstDay < 0) firstDay += 20;
 // Array of the trecenas in sequence, using 0-inital days from tonalli position series
 var trecenaSeq = [0, 13, 6, 19, 12, 5, 18, 11, 4, 17, 10, 3, 16, 9, 2, 15, 8, 1, 14, 7];
+var trecenaNames = ["Caiman","Jaguar","Deer","Flower","Reed","Death","Rain","(Grass) Twist","Serpent","Flint Knife","Monkey","Lizard","Movement","Dog","House","Vulture","Water","Wind","Eagle","Rabbit"];
 var trecenaIndex = trecenaSeq.indexOf(firstDay) + 1;
 
 // Adopted from https://coderwall.com/p/nilaba/simple-pure-javascript-array-unique-method-with-5-lines-of-code
@@ -50,6 +51,8 @@ router.get("/tonalli/", (req, res) => {
 		if (error) console.log(error);
 		tonalObj.thirteen = mahtlactliOmeyi;
 		tonalObj.night = night;
+		tonalObj.trecenaIndex = trecenaIndex;
+		tonalObj.trecenaFirst = trecenaNames[trecenaIndex - 1];
 		tonalObj.position = doc[0].position;
 		tonalObj.name = doc[0].name;
 		tonalObj.nahuatl = doc[0].nahuatl;

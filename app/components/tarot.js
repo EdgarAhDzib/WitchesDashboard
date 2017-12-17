@@ -33,6 +33,10 @@ export default class Tarot extends React.Component {
 		}
 		return arr;
 	}
+	
+	componentDidMount() {
+		this.props.wallpaper("tarotBkgd");
+	}
 
 	render() {
 		// First display form, change display by changing state after form submission

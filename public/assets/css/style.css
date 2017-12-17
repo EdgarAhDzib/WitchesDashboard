@@ -1,7 +1,12 @@
 /*https://css-tricks.com/snippets/css/complete-guide-grid/ */
 /* look into keyframe, one to declare at "Fade in," "ease in" */
-body {
+.tarotBkgd {
 	background-image: url("../images/tarot_wallpaper_bright.jpg");
+}
+
+.tonalliBkgd {
+	background-image: url("../images/tonalpohualli_wallpaper.jpg");
+	background-size: 2000px;
 }
 
 .container {

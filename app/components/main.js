@@ -9,19 +9,21 @@ export default class Main extends React.Component {
 		this.state = {
 			wallpaper: "intro"
 		};
+		this.wallPaper = this.wallPaper.bind(this);
 	}
 	
 	wallPaper(comp) {
+		console.log(comp);
 		this.setState({ wallpaper: comp });
 	}
 	
 	componentDidMount() {
 	}
-// Temporarily removed <Tarot/>
+// Temporarily removed <Tarot wallpaper={this.wallPaper} />
 	render() {
 		return (
 		<div className={this.state.wallpaper}>
-			<Tonalli/>
+			<Tonalli wallpaper={this.wallPaper}/>
 		</div>
 		)
 	}
