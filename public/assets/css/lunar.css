@@ -1,0 +1,116 @@
+.lunarBkgd {
+	background-image: url("../images/shaded_moon.jpg");
+}
+
+.lunarContainer {
+	display: grid;
+	justify-self: center;
+	align-content: center;
+	justify-content: center;
+	grid-template-rows: repeat(7, 1fr);
+	grid-template-columns: repeat(7, 1fr);
+	grid-column-start: 2;
+	grid-column-end: 8;
+	grid-row-start: 2;
+	grid-row-end: 8;
+}
+
+.lunarDay {
+	background-color: rgba(255,255,255, 0.6);
+	z-index: 2;
+	border: 1px solid black;
+	height: 120px;
+	vertical-align: top;
+}
+
+.moonTitleCell {
+	grid-column-start: 2;
+	grid-column-end: 7;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	color: white;
+	text-align: center;
+	height: 90px !important;
+}
+.leftArrow {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	color: white;
+	text-align: center;
+	height: 90px !important;
+}
+.rightArrow {
+	grid-column-start: 7;
+	grid-column-end: end;
+	grid-row-start: 1;
+	grid-row-end: 2;
+	color: white;
+	text-align: center;
+	height: 90px !important;
+}
+
+.weekDay0 {
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+.weekDay1 {
+	grid-column-start: 2;
+	grid-column-end: 3;
+}
+.weekDay2 {
+	grid-column-start: 3;
+	grid-column-end: 4;
+}
+.weekDay3 {
+	grid-column-start: 4;
+	grid-column-end: 5;
+}
+.weekDay4 {
+	grid-column-start: 5;
+	grid-column-end: 6;
+}
+.weekDay5 {
+	grid-column-start: 6;
+	grid-column-end: 7;
+}
+.weekDay6 {
+	grid-column-start: 7;
+	grid-column-end: end;
+}
+
+.topLunRow {
+	grid-row-start: 1;
+	grid-row-end: 2;
+	color: white;
+	text-align: center;
+}
+.weekRow1 {
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+.weekRow2 {
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+.weekRow3 {
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+.weekRow4 {
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+.weekRow5 {
+	grid-row-start: 6;
+	grid-row-end: 7;
+}
+.weekRow6 {
+	grid-row-start: 7;
+	grid-row-end: end;
+}
+
+.highlightToday{
+	background-color: rgb(255,189,189) !important; /* #ffbdbd */
+}

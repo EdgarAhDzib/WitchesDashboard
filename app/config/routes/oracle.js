@@ -12,10 +12,7 @@ router.get("/query/:count", (req, res) => {
 	}
 	var randIndices = [];
 	var checkArray = [];
-
-	console.log(checkArray);
-
-	console.log("Count spread", countSpread);
+	// console.log(checkArray);
 
 	var i = 0;
 	function buildTheSpread() {

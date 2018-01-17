@@ -1,0 +1,125 @@
+.tonalliBkgd {
+	background-image: url("../images/tonalpohualli_wallpaper.jpg");
+	background-size: 2000px;
+}
+
+/* Duplicated from style.css */
+.container {
+	display: grid; /* | inline-grid | subgrid --> May be optional */
+	justify-self: center;
+	align-content: center; /* space-evenly */
+	justify-content: center; /* space-evenly */
+	grid-template-rows: repeat(8, 1fr); /* 1fr 1fr 1fr 1fr; */
+	grid-template-columns: repeat(8, 1fr); /* 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;*/
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.nested {
+	margin: auto;
+	width: 190px;
+}
+
+.imgContainer {
+	margin: auto;
+	width: 150px;
+}
+
+
+
+/* Set up the framework into which to nest the Aztec calendar elements */
+.tonalContainer {
+	display: grid;
+	justify-self: center;
+	align-content: center;
+	justify-content: center;
+	grid-template-rows: repeat(9, 1fr);
+	grid-template-columns: repeat(9, 1fr);
+}
+
+.tonalBoxOne {
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+.tonalBoxTwo {
+	grid-column-start: 3;
+	grid-column-end: 9;
+}
+
+/* Classes to arrange the Aztec calendar gods by their respective tiers
+Additional functions for horizontal spread across each tier when multiple cases */
+.TonalTier0 {
+	grid-row-start: 1;
+	grid-row-end: 2;
+	justify-self: center;
+}
+.TonalTier1 {
+	grid-row-start: 2;
+	grid-row-end: 3;
+	justify-self: center;
+}
+.TonalTier2 {
+	grid-row-start: 3;
+	grid-row-end: 4;
+	justify-self: center;
+}
+.TonalTier3 {
+	grid-row-start: 4;
+	grid-row-end: 5;
+	justify-self: center;
+}
+.TonalTier4 {
+	grid-row-start: 5;
+	grid-row-end: 6;
+	justify-self: center;
+}
+.TonalTier5 {
+	grid-row-start: 6;
+	grid-row-end: 7;
+	justify-self: center;
+}
+.TonalTier6 {
+	grid-row-start: 7;
+	grid-row-end: 8;
+	justify-self: center;
+}
+.TonalTier7 {
+	grid-row-start: 8;
+	grid-row-end: end;
+	justify-self: center;
+}
+.TonalTier0 {
+	grid-row-start: 1;
+	grid-row-end: 2;
+	justify-self: center;
+}
+/* Assign column spans */
+.TonalCol0 {
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+.TonalSingleCol {
+	grid-column-start: 3;
+	grid-column-end: 9;
+}
+.TonalCol1Of2 {
+	grid-column-start: 3;
+	grid-column-end: 6;
+}
+.TonalCol2Of2 {
+	grid-column-start: 6;
+	grid-column-end: 9;
+}
+.TonalCol1Of3 {
+	grid-column-start: 3;
+	grid-column-end: 5;
+}
+.TonalCol2Of3 {
+	grid-column-start: 5;
+	grid-column-end: 7;
+}
+.TonalCol3Of3 {
+	grid-column-start: 7;
+	grid-column-end: 9;
+}

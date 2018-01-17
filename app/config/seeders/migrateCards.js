@@ -43,7 +43,7 @@ mongoose.Promise = Promise;
 // Initialize Express
 var app = express();
 
-// Use morgan and body parser with our app
+// Use morgan and body parser
 //app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -55,7 +55,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Make public a static dir - but perhaps unnecessary, too, if the file runs all from the command line
 app.use(express.static("./public", {index: false} ) );
 
-var databaseUri = "mongodb://localhost/tarot";
+var databaseUri = "mongodb://localhost/witchesdb";
 
 if (process.env.MONGODB_URI) {
 	mongoose.connect(process.env.MONGODB_URI);

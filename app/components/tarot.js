@@ -35,7 +35,6 @@ export default class Tarot extends React.Component {
 	}
 	
 	componentDidMount() {
-		this.props.wallpaper("tarotBkgd");
 	}
 
 	render() {

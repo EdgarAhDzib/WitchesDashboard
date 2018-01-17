@@ -1,0 +1,93 @@
+.menuRow {
+	grid-template-rows: 1fr;
+}
+
+.menuBkgd {
+	background-image: url("../images/rpi_bright.jpg");
+}
+
+.menuItem1, .menuItem2, .menuItem3, .menuItem4 {
+	grid-row-start: 1;
+	grid-row-end: end;
+	text-align: center;
+	background-color: rgba(144,215,255,0.8);
+	border-radius: 15px;
+	margin: 10px;
+}
+
+.menuItem1:hover, .menuItem2:hover, .menuItem3:hover, .menuItem4:hover {
+	background-color: rgba(255,208,185,0.8);
+}
+
+.selectedMenu {
+	background-color: rgba(221,160,221,0.8);
+}
+
+.menuItem1 {
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+.menuItem2 {
+	grid-column-start: 3;
+	grid-column-end: 5;
+}
+
+.menuItem3 {
+	grid-column-start: 5;
+	grid-column-end: 7;
+}
+
+.menuItem4 {
+	grid-column-start: 7;
+	grid-column-end: end;
+}
+
+.menuTitleRow {
+	text-align: center;
+	grid-column-start: 1;
+	grid-column-end: end;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.menuPanel1, .menuPanel2, .menuPanel3, .menuPanel4 {
+	text-align: center;
+	border-radius: 25px;
+	border-style: double;
+	border-width: 10px;
+	margin: 10px;
+	padding: 10px;
+}
+
+.menuPanel1:hover, .menuPanel2:hover, .menuPanel3:hover, .menuPanel4:hover {
+	background-color: rgba(255,208,185,0.8);
+}
+
+.menuPanel1 {
+	grid-row-start: 2;
+	grid-row-end: 5;
+	grid-column-start: 2;
+	grid-column-end: 5;
+}
+
+.menuPanel2 {
+	grid-row-start: 5;
+	grid-row-end: 8;
+	grid-column-start: 2;
+	grid-column-end: 5;
+}
+
+.menuPanel3 {
+	grid-row-start: 2;
+	grid-row-end: 5;
+	grid-column-start: 5;
+	grid-column-end: 8;
+}
+
+.menuPanel4 {
+	grid-row-start: 5;
+	grid-row-end: 8;
+	grid-column-start: 5;
+	grid-column-end: 8;
+}

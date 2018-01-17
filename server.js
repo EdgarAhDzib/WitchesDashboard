@@ -36,6 +36,12 @@ app.use("/", oracle);
 const tonalli = require("./app/config/routes/tonalli");
 app.use("/", tonalli);
 
+const lunar = require("./app/config/routes/lunar");
+app.use("/", lunar);
+
+const talisman = require("./app/config/routes/talisman");
+app.use("/", talisman);
+
 // Already run to populate the Gods collection, no longer required
 // const popdeities = require("./app/config/routes/popDeities");
 // app.use("/", popdeities);

@@ -15,12 +15,10 @@ export default class Tonalli extends React.Component {
 		axios.get("/tonalli/").then(function(response) {
 			this.setState({ tonalli: response.data });
 		}.bind(this) );
-		
-		this.props.wallpaper("tonalliBkgd");
 	}
 
 	render() {
-		console.log(this.state.tonalli);
+		// console.log(this.state.tonalli);
 		var tonalComponent = <div></div>
 		var teoComponent = <div></div>
 		// Initialize the variables, each will be assigned to deity through map
@@ -31,13 +29,31 @@ export default class Tonalli extends React.Component {
 		var firstDay = "";
 		var specialDay = "";
 		var nahuatlName = "";
-
-		// HTML elements initialized blank
-
-		// var tonalli = "";
-		// var dayPhrase = "";
-		// var nightPhrase = "";
-		// var trecenaPhrase = "";
+		var tier = -1;
+		// Tier sequence, descending:
+		var tierArray = [ "Highest", "Omeyocan", "Celestial", "Elemental", "Above surface", "Earth surface", "Chthonic", "Underworld" ];
+		var tierDivs = tierArray.map(function(level, i){
+			return <div key={"tierDiv"+i} className={"TonalTier"+i + " tonalCol0"}>{level}</div>
+		});
+		// Initialize the counters by tier position, which will then determine how many cells to assign per level
+		var cellsForTier = {
+			0: 0,
+			1: 0,
+			2: 0,
+			3: 0,
+			4: 0,
+			5: 0,
+			6: 0,
+			7: 0
+		};
+		// Clone the cellsForTier object to initially count the number of deities per tier, thus determining the number of horizontal cells per tier
+		var cellsInEachTier = Object.assign({}, cellsForTier);
+		if (this.state.tonalli.hasOwnProperty("deities") && this.state.tonalli.deities.length > 0) {
+			for (let i = 0; i < this.state.tonalli.deities.length; i++) {
+				var tier = this.state.tonalli.deities[i].tier;
+				cellsInEachTier[tier] += 1;
+			}
+		}
 
 		if (this.state.tonalli.hasOwnProperty("position")) {
 			tonalliNum = this.state.tonalli.position;
@@ -81,11 +97,23 @@ export default class Tonalli extends React.Component {
 				if (deity.hasOwnProperty("thirteen") && deity.thirteen.indexOf(trecena) >= 0 ) {
 					var trecenaPhrase = <h4><em>Cycle of 1 {firstDay}</em></h4>
 				} else { var trecenaPhrase = ""; }
+				if (deity.hasOwnProperty("tier") ) {
+					var tier = "TonalTier" + deity.tier;
+					// Add 1 (cell) to the value for each represented tier property, to assign column position
+					cellsForTier[deity.tier] += 1;
+					if (cellsInEachTier[deity.tier] > 1) {
+						// Assign horizontal cell position by increment and sum
+						var columnClass = "TonalCol" + cellsForTier[deity.tier] + "Of" + cellsInEachTier[deity.tier];
+					} else {
+						var columnClass = "TonalSingleCol";
+					}
+				} else { var tier = ""; }
 
-				return <div key={"div" + i}><h3>{deity.name} ('{deity.english}') - {deity.charge}</h3>{tonalli}{dayPhrase}{nightPhrase}{trecenaPhrase}</div>
+				return <div key={"div" + i} className={tier + " " + columnClass}><h3>{deity.name} ('{deity.english}') - {deity.charge}</h3>{tonalli}{dayPhrase}{nightPhrase}{trecenaPhrase}</div>
 			});
 		}
+		// console.log(cellsForTier);
 
-		return <div>{tonalComponent}{teoComponent}</div>
+		return <div className="tonalContainer"><div className="tonalBoxOne">{tonalComponent}</div><div className="tonalBoxTwo container">{tierDivs}{teoComponent}</div></div>
 	}
 }
