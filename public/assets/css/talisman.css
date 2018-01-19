@@ -1,0 +1,60 @@
+.talismanBkgd {
+	background-image: url("../images/dendour_bright.jpg");
+	background-size: 100% 100%;
+}
+
+.talismanTitle {
+	grid-row-start: 1;
+	grid-row-end: 2;
+	grid-column-start: 1;
+	grid-column-end: end;
+}
+
+.talismanImg {
+	grid-row-start: 2;
+	grid-row-end: 6;
+	grid-column-start: 5;
+	grid-column-end: end;
+	margin: auto;
+}
+
+.talismanRow0 {
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.talismanRow1 {
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.talismanRow2 {
+	grid-row-start: 4;
+	grid-row-end: 5;
+}
+
+.talismanRow3 {
+	grid-row-start: 5;
+	grid-row-end: 6;
+}
+
+.talismanPart0 {
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+
+.talismanPart1 {
+	grid-column-start: 2;
+	grid-column-end: 5;
+}
+
+.talismanDesc {
+	grid-row-start: 6;
+	grid-row-end: end;
+	grid-column-start: 1;
+	grid-column-end: end;
+}
+
+.display-linebreak {
+	white-space: pre-line;
+}

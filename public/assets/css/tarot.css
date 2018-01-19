@@ -1,5 +1,6 @@
 .tarotBkgd {
 	background-image: url("../images/tarot_wallpaper_bright.jpg");
+	background-size: 100% 100%;
 }
 
 @-webkit-keyframes fstCardFadeIn {

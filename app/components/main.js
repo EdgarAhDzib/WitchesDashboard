@@ -40,6 +40,7 @@ export default class Main extends React.Component {
 			break;
 			case "talisman" :
 				currComponent = <Talisman/>
+				backGround = "talismanBkgd";
 			break;
 			default:
 				currComponent = <Menu oracle={this.selectOracle}/>
@@ -51,7 +52,6 @@ export default class Main extends React.Component {
 		var oracleFunction = this.selectOracle;
 		var currOracle = this.state.oracle;
 		var menuPanels = panels.map(function(panel, inc){
-			if (currOracle == panel[0]) { console.log("Panel", panel[0]); }
 			var selected = currOracle == panel[0] ? " selectedMenu" : "" ;
 			var increment = inc + 1;
 			var oracleOption = panel[0];

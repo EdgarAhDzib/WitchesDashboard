@@ -114,6 +114,16 @@ export default class Tonalli extends React.Component {
 		}
 		// console.log(cellsForTier);
 
-		return <div className="tonalContainer"><div className="tonalBoxOne">{tonalComponent}</div><div className="tonalBoxTwo container">{tierDivs}{teoComponent}</div></div>
+		return (
+			<div className="tonalContainer">
+				<div className="tonalBoxOne">
+					{tonalComponent}
+				</div>
+				<div className="tonalBoxTwo container">
+					{tierDivs}
+					{teoComponent}
+				</div>
+			</div>
+			)
 	}
 }

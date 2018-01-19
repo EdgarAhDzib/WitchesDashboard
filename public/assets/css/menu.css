@@ -4,6 +4,7 @@
 
 .menuBkgd {
 	background-image: url("../images/rpi_bright.jpg");
+	background-size: 100% 100%;
 }
 
 .menuItem1, .menuItem2, .menuItem3, .menuItem4 {

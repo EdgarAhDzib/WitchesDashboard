@@ -1,5 +1,6 @@
 .lunarBkgd {
 	background-image: url("../images/shaded_moon.jpg");
+	background-size: 100% 100%;
 }
 
 .lunarContainer {

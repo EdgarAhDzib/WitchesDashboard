@@ -16,15 +16,37 @@ export default class Talisman extends React.Component {
 	}
 
 	render() {
-		console.log(this.state);
 		var img = "";
+		var title = "";
+		var description = "";
+		var rowCounter = 0;
+		var notes = []; // String concatenation was throwing an [object Object] bug
 		if (this.state.talisman) {
-			img = <img src={this.state.talisman.img_file} />
+			title = <div className="talismanTitle"><h2>{this.state.talisman.title}</h2></div>
+			img = <div className="talismanImg"><img src={this.state.talisman.img_file} width="400" /></div>
+			description = this.state.talisman.description.map(function(desc, i){
+				return (
+					<div className="display-linebreak" key={"desc"+i}>{desc}</div>
+				);
+			});
+			for (var i in this.state.talisman) {
+				if (!isNaN(i)) {
+					for (let j = 0; j < this.state.talisman[i].length; j++) {
+						notes.push(<div className={"talismanRow"+rowCounter+" talismanPart"+j} key={i+"notes"+j}>{this.state.talisman[i][j]}</div>);
+					}
+					rowCounter++;
+				}
+			}
 		}
 		return (
-			<div className="container talismanDiv">
-				{img}
+		<div className="container talismanDiv">
+			{title}
+			{img}
+			{notes}
+			<div className="talismanDesc">
+				{description}
 			</div>
+		</div>
 		)
 	}
 }
