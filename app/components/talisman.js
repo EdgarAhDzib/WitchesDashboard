@@ -19,6 +19,7 @@ export default class Talisman extends React.Component {
 		var img = "";
 		var title = "";
 		var description = "";
+		var linkUrl = "";
 		var rowCounter = 0;
 		var notes = []; // String concatenation was throwing an [object Object] bug
 		if (this.state.talisman) {
@@ -37,6 +38,7 @@ export default class Talisman extends React.Component {
 					rowCounter++;
 				}
 			}
+			linkUrl = <div>Source page: <a href={this.state.talisman.link} target="_blank">{this.state.talisman.link}</a></div>
 		}
 		return (
 		<div className="container talismanDiv">
@@ -45,6 +47,8 @@ export default class Talisman extends React.Component {
 			{notes}
 			<div className="talismanDesc">
 				{description}
+				<br/>
+				{linkUrl}
 			</div>
 		</div>
 		)

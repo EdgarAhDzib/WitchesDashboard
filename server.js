@@ -6,6 +6,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 
 var Keys = require("./keys.js");
+var aztecProtectionSpell = require("./nahualtocaitl.js");
 
 // Determine the Mongoose connection
 const PORT = process.env.PORT || 3000;

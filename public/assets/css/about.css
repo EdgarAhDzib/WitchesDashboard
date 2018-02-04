@@ -1,0 +1,61 @@
+.aboutBkgd {
+	background-color: rgba(255,255,255,0.8);
+	/* May apply to a future component
+    opacity: 0.7;
+	background-image: url("../images/dato.jpg");
+	background-size: 100%;
+	*/
+}
+
+.aboutTitleRow {
+	text-align: center;
+	grid-column-start: 1;
+	grid-column-end: end;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.techDiv {
+	grid-column-start: 1;
+	grid-column-end: end;
+	grid-row-start: 2;
+	grid-row-end: 6;
+}
+
+.magicDiv, .rpiBox {
+	grid-row-start: 6;
+	grid-row-end: end;
+}
+
+.magicDiv {
+	grid-column-start: 1;
+	grid-column-end: 5;
+}
+
+.rpiBox {
+	grid-column-start: 5;
+	grid-column-end: end;
+	padding-top: 20px;
+}
+
+.rpiImg {
+	float: right;
+}
+
+.aboutSpan {
+	text-align: center;
+	border-radius: 25px;
+	border-style: double;
+	border-width: 10px;
+	margin: 10px;
+	padding: 10px;
+}
+
+.aboutSpan:hover {
+	background-color: rgba(255,208,185,0.8);
+}
+
+.aboutATag:link, .aboutATag:visited, .aboutATag:hover, .aboutATag:active {
+	text-decoration: none;
+	color: black;
+}

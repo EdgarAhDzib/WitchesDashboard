@@ -53,7 +53,7 @@ router.get("/query/:count", (req, res) => {
 // Declared within scope of GET, was failing outside because of undefined variables
 function arrCb(arr, id) {
 	var ifInArray = checkArray.indexOf(id + "ind");
-	if (ifInArray > -1) console.log("This ID already listed", ifInArray);
+	if (ifInArray > -1) {}
 	else {
 		arr.push(id);
 		checkArray.push(id + "ind");
@@ -64,5 +64,22 @@ function arrCb(arr, id) {
 buildTheSpread();
 
 }); // Close GET operation
+
+// For synoptic review of card content by image, title, and keywords
+router.get("/reviewallcards", (req, res) => {
+	var allCards = [];
+	Card.find().exec(function(err, doc){
+		for (i = 0; i < doc.length; i++) {
+			allCards.push({
+				image: doc[i].img_file.replace("bigjpgs","assets/images/cards"),
+				keywords: doc[i].keywords,
+				title: doc[i].title
+			});
+		}
+	}).then(function(){
+		//console.log(allCards);
+		res.json(allCards);
+	});
+});
 
 module.exports = router;

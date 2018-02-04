@@ -20,12 +20,9 @@
 	width: 190px;
 }
 
-.imgContainer {
+.tonalImgContainer {
 	margin: auto;
-	width: 150px;
 }
-
-
 
 /* Set up the framework into which to nest the Aztec calendar elements */
 .tonalContainer {
@@ -33,20 +30,23 @@
 	justify-self: center;
 	align-content: center;
 	justify-content: center;
-	grid-template-rows: repeat(3, 1fr);
+	grid-template-rows: 1fr;
 	grid-template-columns: repeat(9, 1fr);
 }
 
 .tonalBoxOne {
-	grid-column-start: 1;
-	grid-column-end: 3;
+	grid-column-start: 7;
+	grid-column-end: end;
 	grid-row-start: 1;
-	grid-row-end: 3;
+	grid-row-end: end;
 }
 
 .tonalBoxTwo {
-	grid-column-start: 3;
-	grid-column-end: 9;
+	
+	display: grid;
+	
+	grid-column-start: 1;
+	grid-column-end: 7;
 	grid-row-start: 1;
 	grid-row-end: end;
 }
@@ -105,7 +105,7 @@ Additional functions for horizontal spread across each tier when multiple cases 
 }
 .TonalSingleCol {
 	grid-column-start: 3;
-	grid-column-end: 9;
+	grid-column-end: end;
 }
 .TonalCol1Of2 {
 	grid-column-start: 3;
@@ -113,7 +113,7 @@ Additional functions for horizontal spread across each tier when multiple cases 
 }
 .TonalCol2Of2 {
 	grid-column-start: 6;
-	grid-column-end: 9;
+	grid-column-end: end;
 }
 .TonalCol1Of3 {
 	grid-column-start: 3;
@@ -125,5 +125,31 @@ Additional functions for horizontal spread across each tier when multiple cases 
 }
 .TonalCol3Of3 {
 	grid-column-start: 7;
-	grid-column-end: 9;
+	grid-column-end: end;
+}
+
+/* Nested grid for deity images and attributes */
+.teotlGrid {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr;
+}
+
+.teotlImage {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: end;
+}
+
+.teotlDesc {
+	grid-column-start: 2;
+	grid-column-end: end;
+	grid-row-start: 1;
+	grid-row-end: end;
+}
+
+/* Set row height if empty */
+.fixedRowHeight {
+	height: 50px;
 }

@@ -1,6 +1,6 @@
 .tarotBkgd {
 	background-image: url("../images/tarot_wallpaper_bright.jpg");
-	background-size: 100% 100%;
+	background-size: 100%;
 }
 
 @-webkit-keyframes fstCardFadeIn {
@@ -445,6 +445,22 @@
 	animation-duration: 1s;
 }
 
+/* "Modal" effect on clicked card */
+.selectedCard {
+	margin: auto;
+	position: absolute;
+	/* float: left; */
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -40%);
+	-ms-transform: translateX(-50%), translateY(-40%);
+	-webkit-transform: translate(-50%, -40%);
+	justify-self: center;
+	z-index: 4;
+	animation-name: fstCardFadeIn;
+	animation-duration: 1s;
+}
+
 .tarotSel #tarotSub {
 	width: 200px;
 	font-size: 250%;
@@ -454,3 +470,9 @@
 	width: 190px;
 }
 
+.cardGrid:hover {
+	outline: 12px solid rgba(221,160,221,0.8);
+	outline-style: double;
+	outline-width: 10px;
+	z-index: 3;
+}

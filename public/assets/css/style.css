@@ -1,18 +1,20 @@
 /*https://css-tricks.com/snippets/css/complete-guide-grid/ */
 /* look into keyframe, one to declare at "Fade in," "ease in" */
 
-.container, .menuRow {
+body {
+	background-image: url("../images/janvandervelde_sabbath.jpg");
+	background-size: 100%;
+}
+
+.container {
 	display: grid; /* | inline-grid | subgrid --> May be optional */
 	justify-self: center;
 	align-content: center; /* space-evenly */
 	justify-content: center; /* space-evenly */
 	grid-template-columns: repeat(8, 1fr); /* 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;*/
+	grid-template-rows: repeat(8, 1fr);
 	margin-left: 10%;
 	margin-right: 10%;
-}
-
-.container {
-	grid-template-rows: repeat(8, 1fr);
 }
 
 .nested {
@@ -33,11 +35,3 @@
 	text-align: center;
 	background-color: rgba(255,255,255,0.7);
 }
-
-/* Likely unnecessary */
-/*
-.lunarDiv {
-	text-align: center;
-	/* color: rgb(255,255,255); */
-}
-*/

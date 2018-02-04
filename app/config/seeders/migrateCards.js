@@ -9,7 +9,7 @@ var router = express.Router();
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-var Card = require("./models/Cards.js");
+var Card = require("./../models/Cards.js");
 
 // Mirrored from https://www.hacksparrow.com/using-node-js-to-download-files.html
 // var file_url = "http://www.DOMAIN/FOLDER/maj07.jpg";

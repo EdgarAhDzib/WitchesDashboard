@@ -32,9 +32,6 @@ export default class Tonalli extends React.Component {
 		var tier = -1;
 		// Tier sequence, descending:
 		var tierArray = [ "Highest", "Omeyocan", "Celestial", "Elemental", "Above surface", "Earth surface", "Chthonic", "Underworld" ];
-		var tierDivs = tierArray.map(function(level, i){
-			return <div key={"tierDiv"+i} className={"TonalTier"+i + " tonalCol0"}>{level}</div>
-		});
 		// Initialize the counters by tier position, which will then determine how many cells to assign per level
 		var cellsForTier = {
 			0: 0,
@@ -55,14 +52,18 @@ export default class Tonalli extends React.Component {
 			}
 		}
 
+		// Create array to map empty rows, to assign className "fixedRowHeight"
+		var rowsArray = [];
+		var emptyRows = "";
+
 		if (this.state.tonalli.hasOwnProperty("position")) {
 			tonalliNum = this.state.tonalli.position;
-			tonalComponent = <div className="imgContainer">
+			tonalComponent = <div className="tonalImgContainer">
 					<img src={'/assets/images/tonalli/num_' + this.state.tonalli.thirteen + '.png'}/><br/>
 					<img src={'/assets/images/tonalli/day_' + this.state.tonalli.position + '.png'}/>
-					<h2 style={{textAlign:"center"}}>{this.state.tonalli.thirteen + " " + this.state.tonalli.nahuatl}</h2>
-					<h3 style={{textAlign:"center"}}>{this.state.tonalli.name}</h3>
-					<h3 style={{textAlign:"center"}}>{this.state.tonalli.night} Night</h3>
+					<h2>{this.state.tonalli.thirteen + " " + this.state.tonalli.nahuatl}</h2>
+					<h3>{this.state.tonalli.name}</h3>
+					<h3>{this.state.tonalli.night} Night</h3>
 				</div>
 		}
 		if (this.state.tonalli.hasOwnProperty("nahuatl")) {
@@ -109,10 +110,35 @@ export default class Tonalli extends React.Component {
 					}
 				} else { var tier = ""; }
 
-				return <div key={"div" + i} className={tier + " " + columnClass}><h3>{deity.name} ('{deity.english}') - {deity.charge}</h3>{tonalli}{dayPhrase}{nightPhrase}{trecenaPhrase}</div>
-			});
+				return (
+				<div key={"div" + i} className={"teotlGrid " + tier + " " + columnClass}>
+					<div className="teotlImage">
+						<img src={"assets/images/teteoh/"+deity.img_ref} height="100"/>
+					</div>
+					<div className="teotlDesc">
+						<h3>{deity.name} ('{deity.english}') - {deity.charge}</h3>
+						{tonalli}{dayPhrase}{nightPhrase}{trecenaPhrase}
+					</div>
+				</div>
+				)
+			}); // Generate DIVs for teoComponent
 		}
-		// console.log(cellsForTier);
+		
+		for (var i in cellsForTier) {
+			rowsArray.push(cellsForTier[i]);
+		}
+		
+		emptyRows = rowsArray.map(function(row, i) {
+			if (row == 0) {
+				return <div key={"emptyRow" + i} className={"fixedRowHeight TonalSingleCol TonalTier" + i}></div>
+			}
+		});
+		
+		var tierDivs = tierArray.map(function(level, i){
+			var fixedHeightClass = rowsArray[i] == 0 ? " fixedRowHeight" : ""
+			return <div key={"tierDiv"+i} className={"TonalTier"+i + " tonalCol0" + fixedHeightClass}><h3>{level}</h3></div>
+		});
+
 
 		return (
 			<div className="tonalContainer">
@@ -122,6 +148,7 @@ export default class Tonalli extends React.Component {
 				<div className="tonalBoxTwo container">
 					{tierDivs}
 					{teoComponent}
+					{emptyRows}
 				</div>
 			</div>
 			)

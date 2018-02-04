@@ -1,22 +1,46 @@
 .menuRow {
-	grid-template-rows: 1fr;
+	display: grid; /* | inline-grid | subgrid --> May be optional */
+	justify-self: center;
+	align-content: center; /* space-evenly */
+	justify-content: center; /* space-evenly */
+	grid-template-columns: repeat(5, 1fr); /* 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;*/
+	grid-template-rows: 1fr 1fr;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 .menuBkgd {
 	background-image: url("../images/rpi_bright.jpg");
-	background-size: 100% 100%;
+	background-size: 100%;
 }
 
-.menuItem1, .menuItem2, .menuItem3, .menuItem4 {
+.menuItem1, .menuItem2, .menuItem3, .menuItem4, .menuItem5 {
 	grid-row-start: 1;
-	grid-row-end: end;
+	grid-row-end: 2;
 	text-align: center;
 	background-color: rgba(144,215,255,0.8);
 	border-radius: 15px;
 	margin: 10px;
 }
 
-.menuItem1:hover, .menuItem2:hover, .menuItem3:hover, .menuItem4:hover {
+.button1, .button2, .button3, .button4, .button5 {
+	grid-row-start: 2;
+	grid-row-end: end;
+	text-align: center;
+	margin: 10px;
+}
+
+.buttonImg {
+	text-align: center;
+	margin: auto;
+}
+
+.buttonImg img {
+	outline-style : solid;
+	outline-color: white;
+}
+
+.menuItem1:hover, .menuItem2:hover, .menuItem3:hover, .menuItem4:hover, .menuItem5:hover {
 	background-color: rgba(255,208,185,0.8);
 }
 
@@ -26,21 +50,51 @@
 
 .menuItem1 {
 	grid-column-start: 1;
-	grid-column-end: 3;
+	grid-column-end: 2;
 }
 
 .menuItem2 {
-	grid-column-start: 3;
-	grid-column-end: 5;
+	grid-column-start: 2;
+	grid-column-end: 3;
 }
 
 .menuItem3 {
-	grid-column-start: 5;
-	grid-column-end: 7;
+	grid-column-start: 3;
+	grid-column-end: 4;
 }
 
 .menuItem4 {
-	grid-column-start: 7;
+	grid-column-start: 4;
+	grid-column-end: 5;
+}
+
+.menuItem5 {
+	grid-column-start: 5;
+	grid-column-end: end;
+}
+
+.button1 {
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+
+.button2 {
+	grid-column-start: 2;
+	grid-column-end: 3;
+}
+
+.button3 {
+	grid-column-start: 3;
+	grid-column-end: 4;
+}
+
+.button4 {
+	grid-column-start: 4;
+	grid-column-end: 5;
+}
+
+.button5 {
+	grid-column-start: 5;
 	grid-column-end: end;
 }
 

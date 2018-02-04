@@ -45,6 +45,8 @@ function talismanRoute() {
 		$("title").each(function(i, element) {
 			result.title = $(element).text().trim();
 		});
+		// Link
+		result.link = url;
 		// Image
 		$("#image1").find("a").each(function(i, element){
 			if (i < 1) {

@@ -21,7 +21,7 @@ mongoose.Promise = Promise;
 // Initialize Express
 var app = express();
 
-// Use morgan and body parser with our app
+// Use morgan and body parser
 //app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
