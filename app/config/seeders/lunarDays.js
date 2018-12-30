@@ -50,15 +50,24 @@ var domain = "http://api.usno.navy.mil/moon/phase?year=2018";
 domain = "http://api.usno.navy.mil/moon/phase?date=12/17/2017&nump=2";
 // Add the January 2019 New phase
 domain = "http://api.usno.navy.mil/moon/phase?date=1/1/2019&nump=1";
+domain = "http://api.usno.navy.mil/moon/phase?year=2019";
+// New setup at https://aa.usno.navy.mil/data/docs/MoonPhase.php
+// Sample request: https://aa.usno.navy.mil/cgi-bin/aa_phases.pl?year=2019&month=12&day=27&nump=10&format=p
 
-request(domain, function(error, response) { // Will HTML param be necessary?
-	var resJSON = JSON.parse(response.body);
+// From local file for 2019
+// var resJSON = require('./2019_phases.js');
+// Remaining January Cold Moon dates til New Wolf Moon 2020
+var resJSON = require('./2020_jan_phases.js');
+
+// request(domain, function(error, response) { // Will HTML param be necessary?
+//	var resJSON = JSON.parse(response.body);
 	for (let i = 0; i < resJSON.phasedata.length; i++) {
 		// Merge the "date" and "time" properties
 		var queryDate = resJSON.phasedata[i]["date"] + " " + resJSON.phasedata[i]["time"];
 		var formatDate = Date.parse(queryDate);
 		var minusSixHours = formatDate - (1000 * 3600 * 6); // Milliseconds * seconds per hour * six hours
 		var centralTimeZone = new Date(minusSixHours);
+		var year = centralTimeZone.getFullYear();
 		var month = centralTimeZone.getMonth();
 		var day = centralTimeZone.getDate();
 		var hour = centralTimeZone.getHours();
@@ -68,12 +77,24 @@ request(domain, function(error, response) { // Will HTML param be necessary?
 			day: day,
 			hour: hour,
 			minute: minutes,
-			year: 2019,
+			year: year,
 			phase: resJSON.phasedata[i]["phase"]
 		});
+		var adjusted = {
+			month: month,
+			day: day,
+			hour: hour,
+			minute: minutes,
+			year: year,
+			phase: resJSON.phasedata[i]["phase"]
+		};
+		console.log(adjusted);
+		/*
 		entry.save(function(err, doc) {
 			if (err) console.log(err);
 			else console.log(doc);
 		});
+		*/
+
 	}
-});
+// });

@@ -38,7 +38,9 @@ db.once("open", function() {
 });
 
 // Initialize date from which to begin full year
-var currDate = new Date("2017 Dec 18");
+// var currDate = new Date("2017 Dec 18");
+var currDate = new Date("2019 Jan 6");
+var currYear = currDate.getFullYear();
 // Initialize variables for population
 var firstDayOfMoon = [];
 var numericMonthAndDay = [];
@@ -48,12 +50,16 @@ var fullCalendar = [];
 var monthList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 // Sort first by month, then by day
-Day.find({"phase" : "New Moon"}).sort({year:1, month: 1, day: 1}).exec(function(error, doc){
+// Include next January's Cold Moon dates, til New Wolf Moon
+var params = [{"phase": "New Moon", "year": currYear}, {"phase": "New Moon", "month": 0, "year": currYear + 1}];
+Day.find({"$or":params}).sort({year:1, month: 1, day: 1}).exec(function(error, doc){
 	for (i = 0; i < doc.length; i++) {
 		var monthIndex = doc[i].month;
 		firstDaysArray(doc[i].year + " " + monthList[monthIndex] + " " + doc[i].day, doc[i].year + " " + doc[i].month + " " + doc[i].day );
 	}
+
 	if (firstDayOfMoon.length == doc.length) {
+		// console.log(doc.length);
 		arrangeDaysPerMonth(firstDayOfMoon);
 	}
 	// Build new calendar from generated object
@@ -62,7 +68,14 @@ Day.find({"phase" : "New Moon"}).sort({year:1, month: 1, day: 1}).exec(function(
 	// console.log(numericMonthAndDay);
 	// console.log(fullCalendar);
 	/*
-	for (i = 0; i < fullCalendar.length; i++) {
+	for (let i = 355; i < fullCalendar.length; i++) {
+		console.log(i);
+		console.log(fullCalendar[i]);
+	}
+	*/
+	// Set to 355 to populate 12/19 - 1/20 Cold Moon dates, restore to 0
+	/*
+	for (i = 355; i < fullCalendar.length; i++) {
 		var entry = new Calendarday( fullCalendar[i] );
 		entry.save(function(err, doc) {
 			if (err) console.log(err);
@@ -79,13 +92,11 @@ Day.find().exec(function(error,doc){
 		lunarDayObjects.push(doc[i]);
 	}
 }).done(function(){
-	/*
  	for (i = 0; i < lunarDayObjects.length; i++) {
 		Calendarday.findOneAndUpdate({"year": lunarDayObjects[i].year, "month": lunarDayObjects[i].month, "day": lunarDayObjects[i].day}, {"hour": lunarDayObjects[i].hour, "minute": lunarDayObjects[i].minute, "phase": lunarDayObjects[i].phase}).exec(function(err, doc){
 			console.log(doc);
 		});
 	}
-	*/
 });
 
 // Assign holiday dates by month and day
@@ -122,7 +133,7 @@ var sabbats = [
 	},
 	{
 		"month": 8,
-		"day": 22,
+		"day": 23, // 22 for 2018
 		"sabbat": "Mabon"
 	},
 	{
@@ -132,12 +143,13 @@ var sabbats = [
 	}	
 ];
 
+/*
 for (i = 0; i < sabbats.length; i++) {
 	Calendarday.update({"month": sabbats[i].month, "day": sabbats[i].day}, {"$push": {"attributes": {"sabbat": sabbats[i].sabbat} } }, {multi:true}).exec(function(err, doc){
 		console.log(doc);
 	});
 }
-
+*/
 
 function firstDaysArray(monthAndDay, numericVersions) {
 	firstDayOfMoon.push(monthAndDay);
@@ -146,6 +158,10 @@ function firstDaysArray(monthAndDay, numericVersions) {
 
 function arrangeDaysPerMonth(allDays) {
 	// Pass the index from j into lunarMonthIndex
+
+	// Why did this skip the December 2019 Cold Moon? Did it miscalculate the length? Why does j reach only 11?
+	// This needs to reach the New Wolf Moon in January 2020, it breaks at the New Cold Moon before populating its days
+
 	yearCalendar:
 	for (j = 0; j < allDays.length; j++) {
 		let k = 1;
@@ -171,6 +187,9 @@ function arrangeDaysPerMonth(allDays) {
 			var year = calendarDay.getFullYear();
 			var monthAndDay = year + " " + month + " " + day;
 			if (monthAndDay == numericMonthAndDay[numericMonthAndDay.length - 1])  {
+				// Broke at "2019 11 25", January Wolf Moon extends to "2020 0 24"
+				// console.log(monthAndDay);
+				// console.log("Break!");
 				break yearCalendar;
 			}
 
